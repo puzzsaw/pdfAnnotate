@@ -119,7 +119,7 @@ export class AnnotationFactory {
                     reader.readAsArrayBuffer(data)
                 })
             } else if (typeof process === 'object') { // node environment
-                let fs = require('fs')
+                let fs = eval('require("fs")')
                 let data = fs.readFileSync(path)
 
                 resolve(new AnnotationFactory(data, userPassword, ownerPassword))
@@ -562,7 +562,7 @@ export class AnnotationFactory {
         if (typeof window !== 'undefined') { // browser environment
             this.download(fileName)
         } else if (typeof process === 'object') { // node environment
-            const fs = require('fs')
+            const fs = eval('require("fs")')
             let data = this.write()
             fs.writeFile(fileName, Buffer.from(new Uint8Array(data)), (err: any) => {
                 if (err) {

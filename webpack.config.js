@@ -20,9 +20,6 @@ module.exports = {
       },
     ]
   },
-  node: {
-    fs: 'empty'
-  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   },
